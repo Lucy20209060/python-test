@@ -26,7 +26,7 @@ def fun2(age):
 def add(num1,num2,fun):
 	return fun(num1) + fun(num2)
 # 将abs作为参数传递
-print(add(-5,6,abs))
+# print(add(-5,6,abs))
 
 # L1 = ['adam', 'LISA', 'barT']
 # L2 = list(map(normalize, L1))
@@ -37,13 +37,20 @@ print(add(-5,6,abs))
 
 # printValue()
 
-def dog(name='Tom', age=2):
-	print('一条叫' + name + '的狗，年龄是' + str(age) + '岁')
+# def dog(name='Tom', age=2):
+# 	print('一条叫' + name + '的狗，年龄是' + str(age) + '岁')
 
-dog('Jack',3) 
-dog(name='Jack',age=3) 
-dog(age=3,name='Jack')
+# dog('Jack',3) 
+# dog(name='Jack',age=3) 
+# dog(age=3,name='Jack')
 
 # 一条叫Jack的狗，年龄是3岁
 # 一条叫Jack的狗，年龄是3岁
 # 一条叫Jack的狗，年龄是3岁
+
+
+def func(first, *parameter_list):
+	print(first)
+	print( parameter_list)
+
+# func(1,2,3,'a','b')
