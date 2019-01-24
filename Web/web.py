@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 from flask import Flask, request, render_template, jsonify
 
-from sql import connect
+from sql import menu_list
 
 app = Flask(__name__)
 
@@ -28,7 +28,7 @@ def signin():
 def list():
     name=request.form['name']
     age=request.form['age']
-    res = connect()
+    res = menu_list()
     return jsonify(res)
 
 if __name__ == '__main__':
