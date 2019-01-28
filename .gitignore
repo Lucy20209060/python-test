@@ -13,3 +13,4 @@ pck.sh
 .idea/
 .happypack
 .DS_Store
+.vscode/
