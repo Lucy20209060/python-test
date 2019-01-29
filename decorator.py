@@ -50,4 +50,4 @@ class Foo(object):
 def bar():
     print('bar')
 
-bar()
+# bar()
