@@ -18,8 +18,8 @@ def get_chrome_cookie(accounts, password):
     browser.find_element_by_xpath('//*[@id="ice_container"]/div/div/div/div[2]/div/div[2]/button[1]').click()
     c = browser.get_cookies()
     chrome_cookie =  c[0]['name'] + '=' + c[0]['value']
-    req = requests.get('http://rpa.aliyun.net/rpa/user/login/Token')
-    print(req.json())
+    # req = requests.get('http://rpa.aliyun.net/rpa/user/login/Token')
+    # print(req.json())
     browser.close()
     return {
         'Cookie': chrome_cookie
