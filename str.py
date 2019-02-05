@@ -2,6 +2,9 @@
 # -*- coding: UTF-8 -*-
 
 # 头部注释 防止编码错误 导致报错
+from var import COUNTS,NUM
+# 导入变量
+print COUNTS,NUM
 
 # str = 'hello world!!'
 # 字符串截取
@@ -27,17 +30,17 @@ class Animal:
 Animal.say_hello()
 
 
-class A:
-    def __init__(self,name):
-        self.name = name
-    def sayHello(self):
-        print('hello--'+self.name)
+# class A:
+#     def __init__(self,name):
+#         self.name = name
+#     def sayHello(self):
+#         print('hello--'+self.name)
 
-a = A('Lucy')
+# a = A('Lucy')
 
 
-delattr(a,'name')
+# delattr(a,'name')
 # delattr(a,'sayHello')
 # a.sayHello()
 
-print(dir(list))
+# print(dir(list))
