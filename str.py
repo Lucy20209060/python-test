@@ -6,6 +6,7 @@ from var import COUNTS,NUM
 # 导入变量
 print COUNTS,NUM
 
+
 # str = 'hello world!!'
 # 字符串截取
 # 1-7 截取1-7位 不包括第七位

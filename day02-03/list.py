@@ -33,9 +33,46 @@ from collections import Iterable
 # print g.next()
 # print g.next()
 
-g = (x for x in range(1,11))
-# print g.next()
-l = [1,2,3,4,5]
+# g = (x for x in range(1,11))
+# # print g.next()
+# l = [1,2,3,4,5]
 
-print isinstance(g,Iterator)     #判断是不是迭代器
-print isinstance(l,Iterable)
+# print isinstance(g,Iterator)     #判断是不是迭代器
+# print isinstance(l,Iterable)
+
+# 创建一个迭代器
+# g = enumerate(['a', 'b', 'c', 'd'])
+# print g.next()
+
+# s = '1 + 4'
+# print eval(s)
+
+# 转化为浮点数
+# print float(100)
+# print float('100')
+# print float('a')
+
+# 格式化输出字符串
+# print 'My name is {0}, I am from {1}!'.format('Lucy', 'China')
+
+# l = set([1,2,3,4])
+# l[0] = 100
+# print l
+
+# 全局变量
+# print globals()
+
+# print hasattr(list, 'append')
+# print help(list)
+
+# class Foo(object):
+#     pass
+   
+# class Bar(Foo):
+#     pass
+   
+# print issubclass(Bar, Foo)
+
+# print list([1,2,3])
+
+# print(value='a',end='-')
