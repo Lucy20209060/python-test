@@ -76,3 +76,6 @@ from collections import Iterable
 # print list([1,2,3])
 
 # print(value='a',end='-')
+
+# print range(0, 11)
+# print range(0, 11, 2)
