@@ -7,7 +7,7 @@ import cv2
 video_capture = cv2.VideoCapture(0)
 
 # 本地图像
-lc_image = face_recognition.load_image_file("./img/test04.jpg")
+lc_image = face_recognition.load_image_file("./img/test01.jpg")
 lc_face_encoding = face_recognition.face_encodings(lc_image)
 
 face_locations = []
