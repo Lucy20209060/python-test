@@ -1,16 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <form action="/signin" method="post">
-        <p><input name="username"></p>
-        <p><input name="password" type="password"></p>
-        <p><button type="submit">Sign In</button></p>
-    </form>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block body %}
+{% raw %}
+<div class="sigin-page-content">
+    <h2>{{site}}</h2>
+</div>
+{% endraw %}
+{% endblock %}
+
+{% block script %}
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            site: "哈哈哈哈1",
+            site2: "哈哈哈哈2",
+            url: "www.runoob.com",
+            alexa: "10000",
+            pathname: ''
+        },
+        methods: {
+            details: function() {
+                return  this.site + " - 学的不仅是技术，更是梦想！";
+            }
+        },
+        created: function() {
+            console.log(1)
+            console.log(window.location.pathname);
+            this.pathname = window.location.pathname
+            // axios({
+            //     methods:"get",
+            // 	url: '/html',
+            // 	params: {}
+            // }).then(res=>{
+            //     console.log(res.data.template);
+                
+            // }).catch(err=>{
+            //     console.log(err);
+            // })
+        }
+    })
+    </script>
+    {% endblock %}

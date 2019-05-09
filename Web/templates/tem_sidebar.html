@@ -1,7 +1,22 @@
 {% raw %}
 <template>
-    <div>
-        <h1>{{site1}} Page</h1>
+    <div class="sidebar-wrap">
+        <a 
+            :class="{ 'active':pathname === '/' }" 
+            href="/"
+        >哈哈哈哈</a>
+        <a 
+            :class="{ 'active':pathname === '/signin' }" 
+            href="/signin"
+        >呵呵呵呵</a>
+        <a 
+            :class="{ 'active':pathname === '/index' }" 
+            href=""
+        >哟哟哟哟</a>
+        <a 
+            :class="{ 'active':pathname === '/log' }" 
+            :href="pathname === '/log' ? 'javascript:;' : 'http://www.baidu.com'"
+        >嘿嘿嘿嘿</a>
     </div>
 </template>
 {% endraw %}
