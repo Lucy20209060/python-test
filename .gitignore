@@ -10,7 +10,7 @@
 pck.sh
 
 # misc
-.idea/
+.idea
 .happypack
 .DS_Store
-.vscode/
+.vscode

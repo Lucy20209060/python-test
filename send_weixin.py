@@ -30,6 +30,6 @@ def send_news():
     except:
         message4="最爱你的人出现啦~~"
         itchat.send(message4,toUserName=mylover)
-        
+
 if __name__ == "__main__":
     send_news()

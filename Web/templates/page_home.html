@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    </head>
+    <body>
+        <div id="app">
+            {% include 'tem_sidebar.html' %}
+            
+            {% raw %}
+            <h1>{{site2}} Page</h1>
+            <ul></ul>
+            <el-button>Button</el-button>
+            {% endraw %}
+        </div>
+    </body>
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                site1: "哈哈哈哈1",
+                site2: "哈哈哈哈2",
+                url: "www.runoob.com",
+                alexa: "10000",
+                pathname: ''
+            },
+            methods: {
+                details: function() {
+                    return  this.site + " - 学的不仅是技术，更是梦想！";
+                }
+            },
+            created: function() {
+                console.log(1)
+                console.log(window.location.pathname);
+                this.pathname = window.location.pathname
+                // axios({
+                //     methods:"get",
+				// 	url: '/html',
+				// 	params: {}
+                // }).then(res=>{
+                //     console.log(res.data.template);
+                    
+                // }).catch(err=>{
+                //     console.log(err);
+                // })
+            }
+        })
+    </script>
+</html>
