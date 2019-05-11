@@ -10,6 +10,9 @@
 {% raw %}
 <div class="home-page-content">
     <h2>{{site}}</h2>
+    <ul>
+        <li v-for="item,index in  menuList" :key="index">菜单-{{item.name}}</li>
+    </ul>
 </div>
 {% endraw %}
 {% endblock %}
@@ -20,27 +23,30 @@
         el: '#app',
         data: {
             site: "首页",
-            pathname: ''
+            pathname: '',
+            menuList: []
         },
         methods: {
             details: function() {
-                return  this.site + " - 学的不仅是技术，更是梦想！";
+                
             }
         },
         created: function() {
             console.log(1)
             console.log(window.location.pathname);
-            this.pathname = window.location.pathname
-            // axios({
-            //     methods:"get",
-            // 	url: '/html',
-            // 	params: {}
-            // }).then(res=>{
-            //     console.log(res.data.template);
-                
-            // }).catch(err=>{
-            //     console.log(err);
-            // })
+            this.pathname = window.location.pathname;
+
+            var _this = this;
+            axios({
+                methods:"get",
+            	url: '/api/list',
+            	params: {}
+            }).then(res=>{
+                // console.log(res.data);
+                _this.menuList = res.data;
+            }).catch(err=>{
+                console.log(err);
+            })
         }
     })
 </script>

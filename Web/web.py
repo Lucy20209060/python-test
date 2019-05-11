@@ -6,6 +6,7 @@ from sql import menu_list
 
 app = Flask(__name__)
 
+# 首页
 @app.route('/', methods=['GET', 'POST'])
 def home():
     return render_template('page_home.html')
@@ -24,10 +25,10 @@ def signin():
 
     return '<h3>Bad username or password.</h3>'
 
-@app.route('/api/list', methods=['POST'])
+@app.route('/api/list', methods=['GET'])
 def list():
-    name=request.form['name']
-    age=request.form['age']
+    # name=request.form['name']
+    # age=request.form['age']
     res = menu_list()
     return jsonify(res)
 
