@@ -1,15 +1,16 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, redirect, url_for
 
 from sql import menu_list
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path = '')
 
 # 首页
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def home():
-    return render_template('page_home.html')
+    # return render_template('page_home.html')
+    return render_template('index.html')
 
 @app.route('/signin', methods=['GET'])
 def signin_form():
@@ -31,6 +32,10 @@ def list():
     # age=request.form['age']
     res = menu_list()
     return jsonify(res)
+
+@app.errorhandler(404)
+def page_error(error):
+    return redirect(url_for('home'))
 
 if __name__ == '__main__':
     app.run(debug=True, port='8080', host='127.0.0.1')
