@@ -1,13 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>登录成功</h1>
-    <h1>Hello {{username}} !!!</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% from 'forms.html' import input as input_field, textarea %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block head %} 
+    {{ super() }} <!-- 用于获取原有的信息  -->
+    <style type='text/css'> 
+        body {
+            background: #fff;
+        }
+    </style> 
+{% endblock head %}
+
+{% set key = '123' %}
+
+{% block content %}
+    <div>嘿嘿 {{key}}</div>
+    <ul id="navigation">
+    {% for item in people %}
+        <li>
+            <span>  {{ item.name }}{{loop.index0}}</span>
+            <i>{{item.age | round | int}}</i>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <p>{{ input('username', value='AS') }}</p>
+    <p>{{ input_field('username', value='AS') }}</p>
+    <p>{{ textarea('text', value='123') }}</p>
+
+
+    {% macro render_dialog(title, class='dialog') -%}
+    <div class="{{ class }}">
+        <h2>{{ title }}</h2>
+        <div class="contents">
+            {{ caller() }}
+        </div>
+    </div>
+    {%- endmacro %}
+
+    {% call render_dialog('Hello World') %}
+        This is a simple dialog rendered by using a macro and
+        a call block.
+    {% endcall %}
+
+    {% set list_of_user = [{'username': 'lucy', 'realname': 'luchao', 'description': '露西'}] %}
+    {% macro dump_users(users) -%}
+    <ul>
+    {%- for user in users %}
+        <li><p>{{ user.username|e }}</p>{{ caller(user) }}</li>
+    {%- endfor %}
+    </ul>
+    {%- endmacro %}
+
+    {% call(user) dump_users(list_of_user) %}
+        <dl>
+            <dl>Realname</dl>
+            <dd>{{ user.realname|e }}</dd>
+            <dl>Description</dl>
+            <dd>{{ user.description|upper }}</dd>
+        </dl>
+    {% endcall %}
+
+
+    {% filter upper %}
+        This text becomes uppercase
+    {% endfilter %}
+
+    <div>{{'哈' ~ key ~ '嘿'}}</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% macro input(name, value='', type='text', size=20) -%}
+    <input type="{{ type }}" name="{{ name }}" value="{{
+        value|e }}" size="{{ size }}">
+{%- endmacro %}
