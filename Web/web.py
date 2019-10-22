@@ -26,7 +26,7 @@ def home():
 @app.route('/signin2')
 def signin_form():
     return render_template(
-        'signin_form.html',
+        'signin-ok.html',
         title='jinja2测试', 
         people=array
     )
