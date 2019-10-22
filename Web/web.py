@@ -6,15 +6,30 @@ from sql import menu_list
 
 app = Flask(__name__, static_url_path = '')
 
+array = [
+    {'name': 'Lucy', 'age': 20.2},
+    {'name': 'Lucas', 'age': 18.5}
+]
+#实现一个可以求长度的函数
+def strLen(arg):
+    return len(arg)
+
+env = app.jinja_env
+env.filters['strLen'] = strLen
+
 # 首页
 @app.route('/', methods=['GET'])
 def home():
     # return render_template('page_home.html')
     return render_template('index.html')
 
-@app.route('/signin', methods=['GET'])
+@app.route('/signin2')
 def signin_form():
-    return render_template('signin_form.html')
+    return render_template(
+        'signin_form.html',
+        title='jinja2测试', 
+        people=array
+    )
 
 @app.route('/signin', methods=['POST'])
 def signin():
