@@ -6,8 +6,8 @@ import json
 import io
 
 session = requests.session()
-acounts = 'luchao'
-password = '123456'
+acounts = 'xxxxx'
+password = 'xxxxxx'
 
 def get_js():
     f = io.open("../js/RSA.js", 'r', encoding='UTF-8')
